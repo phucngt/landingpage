@@ -1,0 +1,343 @@
+[
+  {
+    "id": "tuan_phuc_rag_001",
+    "title": "1. Identity",
+    "content": "## 1. Identity\n\nName: Nguyen Tuan Phuc  \nLocation: Ho Chi Minh City, Vietnam  \nTarget roles: Data Analyst, BI Analyst, Business Intelligence Analyst, Analytics Engineer, Data Engineer-oriented Analyst  \nMain positioning: Data Analyst with strong SQL Server, Python, Power BI, ETL, MIS dashboard, KPI reporting, and securities business analytics experience.\n\nShort pitch:\nTuan Phuc is a Data Analyst working in the securities industry. He builds MIS dashboards, KPI reports, SQL Server data marts, ETL pipelines, automated reporting workflows, and customer/trading analytics for business users and management.\n\nTone for chatbot:\n- Direct, practical, professional\n- Recruiter-friendly\n- Sound like Tuan Phuc: concise, business-aware, implementation-focused\n- Avoid hype and overclaiming\n- Clearly separate real experience from demo or simulated portfolio work\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_002",
+    "title": "2. Current Professional Positioning",
+    "content": "## 2. Current Professional Positioning\n\nTuan Phuc is best positioned as:\n\n“Data Analyst / BI Analyst with strong data engineering ability in securities analytics.”\n\nCore themes:\n- SQL Server data warehouse work\n- Python automation\n- Power BI / BI dashboarding\n- MIS dashboard design\n- KPI logic and business reporting\n- Customer analytics and funnel analysis\n- Trading, NAV, fee, margin, and activity analytics\n- ETL and reporting pipeline automation\n- Translating business requirements into reporting structures\n\nRecommended landing page headline:\n“Reporting systems and analytics for capital markets.”\n\nAlternative headline:\n“Data Analyst building KPI dashboards, ETL pipelines, and securities business analytics.”\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_003",
+    "title": "3. Resume Summary",
+    "content": "## 3. Resume Summary\n\nCurrent role:\nCompany: Yuanta Vietnam  \nRole: Data Analyst  \nPeriod: Jan 2025 – current  \nMain work:\n- Developed MIS dashboards, KPI reports, ETL pipelines, and automated reporting workflows using SQL Server, Python, Power BI, and Excel.\n- Built and maintained data marts, reporting structures, and data processing pipelines for customer activity, trading, NAV, and operational analytics.\n- Conducted customer behavior, funnel, and business performance analysis to support management reporting and decision-making.\n- Automated data processing and reporting tasks to reduce manual workload.\n- Supported stakeholders with ad hoc analysis, KPI insights, and reporting solutions across business teams.\n\nPrevious role:\nCompany: VNDirect  \nRole: Business Intelligence Analyst  \nPeriod: Jan 2024 – Dec 2024  \nMain work:\n- Built on-demand dashboards and reports in Power BI.\n- Used Tabular Editor for DAX optimization and PowerBI.tips templates to standardize dashboard layouts.\n- Conducted ad hoc analysis using Power BI, Excel, Python, and machine learning for business analytics and customer segmentation.\n- Developed Customer Intelligence frameworks, CI codebooks, and sales payout policies to support business planning and decision-making.\n\nEarlier analytics role:\nRole: Data Analytics Practitioner  \nPeriod: Jan 2023 – Dec 2023  \nMain work:\n- Applied Python, R, SQL, and Tableau in academic analytics projects using real-world datasets.\n- Delivered actionable insights and achieved top class performance.\n- Portfolio available with examples of work and academic projects.\n\nEarlier non-data experience:\n- Procurement Specialist at Nova Service Group\n- Mechanical Electrical Plumbing Engineer / Draftsman at ADP Group\n\nImportant interpretation:\nTuan Phuc has a non-traditional background moving from engineering/procurement into data analytics. This can be framed positively as strong system thinking, structured problem-solving, and practical business execution.\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_004",
+    "title": "4. Skills",
+    "content": "## 4. Skills\n\nLanguages:\n- SQL\n- Python\n- R\n- DAX\n\nDatabases:\n- MS SQL Server\n\nBI tools:\n- Power BI\n- Tableau\n- Looker Studio\n\nDevOps / engineering:\n- Git\n- Docker\n\nCloud:\n- Azure\n- Google Cloud Platform\n\nSpreadsheets:\n- Excel\n- Google Sheets\n\nAdditional practical strengths from work history:\n- SQL Server views, CTEs, stored procedures, data marts\n- Python automation for Excel and reporting workflows\n- ETL pipeline design\n- KPI calculation logic\n- MIS dashboard structure\n- Customer funnel analysis\n- Customer segmentation\n- Securities business metrics: NAV, trading value, fee, margin, cash-in/out, login, customer activation\n- Dashboard requirement gathering and translation from business needs to data logic\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_005",
+    "title": "5. Domain Knowledge",
+    "content": "## 5. Domain Knowledge\n\nPrimary domain:\nVietnam securities brokerage / capital markets analytics.\n\nBusiness areas Tuan Phuc understands:\n- Customer onboarding funnel\n- Open Account → Login → Cash-in → NAV → Trading\n- Digital sales vs broker-assisted / Careby customer channels\n- Customer activation and reactivation\n- Customer behavior analysis\n- Trading activity analytics\n- NAV and asset analytics\n- Fee and margin income analytics\n- Broker / branch / sales performance analytics\n- KPI dashboards for management\n- MIS reporting for business teams\n\nImportant metrics and concepts:\n- NAV / Total Net Asset\n- Trading value / matched value\n- Trading fee\n- Margin interest\n- Cash in / cash out\n- Login behavior\n- First Login Rate\n- Returning Login Rate\n- Dormant / inactive customers\n- Customer funnel conversion\n- Broker performance\n- Branch performance\n- Asset turnover / vòng quay tài sản\n- Customer segmentation by NAV, fee, activity, product usage\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_006",
+    "title": "6. Portfolio Strategy Without Confidential Data",
+    "content": "## 6. Portfolio Strategy Without Confidential Data\n\nImportant rule:\nDo not show real company data, customer data, internal dashboards, internal table names that are sensitive, or actual business numbers unless already public or explicitly approved.\n\nSafe ways to showcase work:\n1. Use demo / simulated data.\n2. Show architecture instead of raw data.\n3. Show anonymized dashboard layouts.\n4. Show KPI formulas and business logic using generic field names.\n5. Show SQL / Python patterns with mock tables.\n6. Explain problem → approach → tools → impact without exposing confidential values.\n\nRecommended confidentiality note:\n“Demo data only. No confidential company data is shown. Project structure and logic are inspired by real analytics work.”\n\nPortfolio should not say:\n“I built the exact internal Yuanta dashboard and here is the real result.”\n\nPortfolio should say:\n“Built a securities-style MIS dashboard using mock data to demonstrate KPI logic, funnel tracking, and management reporting structure.”\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_007",
+    "title": "7. Featured Work for Landing Page",
+    "content": "## 7. Featured Work for Landing Page",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_008",
+    "title": "Project 1: Securities Customer Funnel Analytics",
+    "content": "### Project 1: Securities Customer Funnel Analytics\n\nProblem:\nBusiness teams need to understand where customers drop off from account opening to revenue-generating activity.\n\nFunnel:\nLeads → Open Account → Login → Cash-in → NAV → Place Order\n\nWhat Tuan Phuc can show:\n- Funnel conversion logic\n- Stage-level customer counts\n- Drop-off rate\n- Broker / branch / channel breakdown\n- Time-based trend\n- Action priority list\n\nTools:\nSQL Server, Python, Power BI, Excel\n\nSafe demo version:\nUse synthetic customer data with fake IDs, fake dates, and fake transaction values.\n\nRecruiter answer:\n“I built this type of analysis to help business teams see where users get stuck in the journey, then prioritize activation actions such as encouraging login, cash-in, or first trade.”\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_009",
+    "title": "Project 2: Broker Performance MIS Dashboard",
+    "content": "### Project 2: Broker Performance MIS Dashboard\n\nProblem:\nManagement needs to monitor broker and branch performance using consistent KPI logic.\n\nPossible KPIs:\n- New accounts\n- Login rate\n- Cash-in customers\n- Trading customers\n- NAV\n- Trading value\n- Fee\n- Margin debt\n- Customer activation rate\n- Revenue contribution\n\nWhat Tuan Phuc can show:\n- KPI cards\n- Trend charts\n- Ranking table\n- Branch / broker filter\n- Drilldown table\n- KPI explanation popovers\n\nTools:\nSQL Server, Power BI, Python, Excel\n\nSafe demo version:\nMock broker names, branch names, dates, and values.\n\nRecruiter answer:\n“I focus on making KPI dashboards actionable. A good MIS dashboard should show what changed, why it changed, who is impacted, and what action should be taken next.”\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_010",
+    "title": "Project 3: SQL Server ETL Pipeline for Reporting",
+    "content": "### Project 3: SQL Server ETL Pipeline for Reporting\n\nProblem:\nManual reporting and Excel processing take too much time and are error-prone.\n\nWhat Tuan Phuc can show:\n- Source → staging → fact table → dashboard flow\n- Incremental update logic\n- Data quality checks\n- Batch logging\n- Reusable SQL/Python functions\n- Automated Excel output\n\nTools:\nSQL Server, Python, pandas, SQLAlchemy/pyodbc, Prefect-style workflow, Git\n\nSafe demo version:\nUse fake source tables such as `raw_customer_activity`, `raw_trade`, `fact_customer_daily`, `dim_date`.\n\nRecruiter answer:\n“I can work beyond dashboard visuals. I build the data preparation layer, reporting tables, and automation logic so the dashboard is stable and refreshable.”\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_011",
+    "title": "Project 4: Customer NAV and Trading Activity Analytics",
+    "content": "### Project 4: Customer NAV and Trading Activity Analytics\n\nProblem:\nBusiness teams need to understand customer value and behavior, not only account count.\n\nMetrics:\n- NAV\n- Trading value\n- Fee\n- Margin debt\n- Cash balance\n- Product usage\n- Activity status\n- Customer segment\n\nWhat Tuan Phuc can show:\n- Customer segmentation logic\n- NAV distribution\n- Activity buckets\n- High-value customer analysis\n- Dormant or inactive customer detection\n- Reactivation priority logic\n\nTools:\nSQL Server, Python, Power BI\n\nSafe demo version:\nSynthetic customer portfolio dataset.\n\nRecruiter answer:\n“I look at customer value through behavior and monetization, not only user count. In securities analytics, login without NAV or trading does not create much business value.”\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_012",
+    "title": "Project 5: Automated Excel Reporting Workflow",
+    "content": "### Project 5: Automated Excel Reporting Workflow\n\nProblem:\nBusiness users often rely on Excel reports that take hours to process manually.\n\nWhat Tuan Phuc can show:\n- Python script to standardize files\n- Column mapping\n- Merge / clean / validate data\n- Export formatted report\n- Reduce repetitive manual work\n\nTools:\nPython, pandas, openpyxl, Excel\n\nSafe demo version:\nUse mock weekly marketing, trading, or customer files.\n\nRecruiter answer:\n“I use Python to automate repetitive Excel reporting tasks, especially when business teams need quick outputs but the data format is inconsistent.”\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_013",
+    "title": "8. How the Chatbot Should Answer Recruiters",
+    "content": "## 8. How the Chatbot Should Answer Recruiters",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_014",
+    "title": "If recruiter asks: “Can I see your real dashboards?”",
+    "content": "### If recruiter asks: “Can I see your real dashboards?”\n\nAnswer:\n“I cannot share internal company dashboards or real business data because they are company assets. However, I can show demo versions using synthetic data that preserve the structure, KPI logic, dashboard design, and analytical approach.”",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_015",
+    "title": "If recruiter asks: “How do I know the work is real?”",
+    "content": "### If recruiter asks: “How do I know the work is real?”\n\nAnswer:\n“The portfolio focuses on realistic business logic, SQL patterns, dashboard structure, ETL design, and KPI definitions based on my actual working experience. Sensitive company data is replaced with mock data.”",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_016",
+    "title": "If recruiter asks: “What makes you different from a normal dashboard builder?”",
+    "content": "### If recruiter asks: “What makes you different from a normal dashboard builder?”\n\nAnswer:\n“I do not only build visuals. I also design the data logic behind the report: SQL Server tables, ETL flow, KPI formulas, data quality checks, and business interpretation. This helps dashboards become reliable management tools rather than only charts.”",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_017",
+    "title": "If recruiter asks: “What domain are you strongest in?”",
+    "content": "### If recruiter asks: “What domain are you strongest in?”\n\nAnswer:\n“My strongest domain is securities business analytics, especially customer funnel, NAV, trading activity, broker performance, fee, margin, and management reporting.”",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_018",
+    "title": "If recruiter asks: “Are you more Data Analyst or Data Engineer?”",
+    "content": "### If recruiter asks: “Are you more Data Analyst or Data Engineer?”\n\nAnswer:\n“I am primarily a Data Analyst, but I have strong data engineering capability. I can build SQL Server reporting structures, automate ETL with Python, and prepare reliable datasets for Power BI or MIS dashboards.”",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_019",
+    "title": "If recruiter asks: “What type of role are you looking for?”",
+    "content": "### If recruiter asks: “What type of role are you looking for?”\n\nAnswer:\n“I am suitable for Data Analyst, BI Analyst, Analytics Engineer, or data analyst roles that need strong SQL, Python, dashboarding, and business understanding, especially in finance, securities, fintech, or data-driven operations.”",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_020",
+    "title": "If recruiter asks: “Can you work with business stakeholders?”",
+    "content": "### If recruiter asks: “Can you work with business stakeholders?”\n\nAnswer:\n“Yes. Much of my work involves translating business questions into KPIs, SQL logic, dashboards, and reports for management and business teams. I focus on making metrics clear, actionable, and aligned with business decisions.”",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_021",
+    "title": "If recruiter asks: “What is your strongest technical skill?”",
+    "content": "### If recruiter asks: “What is your strongest technical skill?”\n\nAnswer:\n“My strongest technical area is SQL Server analytics and reporting logic. I also use Python to automate data processing and Power BI to deliver business dashboards.”",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_022",
+    "title": "If recruiter asks: “Do you use machine learning?”",
+    "content": "### If recruiter asks: “Do you use machine learning?”\n\nAnswer:\n“I have used machine learning for analytics and customer segmentation, but for business reporting I usually prefer transparent, explainable logic because stakeholders need to understand and trust the result.”",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_023",
+    "title": "If recruiter asks: “Why did you move from engineering to data?”",
+    "content": "### If recruiter asks: “Why did you move from engineering to data?”\n\nAnswer:\n“My engineering background gave me structured problem-solving and system thinking. I moved into data because I enjoy turning business problems into measurable logic, automated workflows, and decision-ready reports.”\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_026",
+    "title": "11. Suggested Landing Page Project Card Copy",
+    "content": "## 11. Suggested Landing Page Project Card Copy",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_027",
+    "title": "Securities Customer Funnel Analytics",
+    "content": "### Securities Customer Funnel Analytics\nA demo analytics project showing how customers move from account opening to login, cash-in, NAV, and trading activity. Built to demonstrate funnel logic, KPI design, and action-oriented reporting for securities business teams. Demo data only.",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_028",
+    "title": "Broker Performance MIS",
+    "content": "### Broker Performance MIS\nA management dashboard concept for monitoring broker and branch performance across customer activation, NAV, trading value, fee, and margin-related KPIs. Focused on practical decision support and KPI explainability. Demo data only.",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_029",
+    "title": "SQL Server Reporting Data Mart",
+    "content": "### SQL Server Reporting Data Mart\nA reporting data model that converts raw customer, asset, trading, and activity data into dashboard-ready fact tables. Includes staging, aggregation logic, incremental refresh thinking, and data quality checks. Demo structure only.",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_030",
+    "title": "Automated Excel Reporting Workflow",
+    "content": "### Automated Excel Reporting Workflow\nA Python automation workflow that standardizes messy Excel files, maps inconsistent columns, validates data, and exports business-ready reports. Designed to reduce repetitive manual processing.\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_031",
+    "title": "12. Safe Mock Table Names for Portfolio",
+    "content": "## 12. Safe Mock Table Names for Portfolio\n\nUse generic names only:\n- dim_date\n- dim_customer\n- dim_branch\n- dim_broker\n- fact_customer_daily\n- fact_trade_daily\n- fact_asset_daily\n- fact_cash_flow_daily\n- fact_login_daily\n- fact_customer_funnel\n- rpt_broker_mis\n- rpt_customer_activation\n\nAvoid using real internal table names unless already approved.\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_032",
+    "title": "13. Safe Example KPI Definitions",
+    "content": "## 13. Safe Example KPI Definitions\n\nFirst Login Rate:\nUsers who logged in for the first time / Accounts opened\n\nCash-in Rate:\nCustomers with cash-in / Accounts opened\n\nTrading Conversion Rate:\nCustomers with at least one matched order / Accounts opened\n\nActive Trading Customer:\nCustomer with trading value greater than 0 in the selected period\n\nNAV Customer:\nCustomer with end-of-period NAV greater than 0\n\nDormant Customer:\nCustomer who previously logged in or traded but has no recent activity for a defined period\n\nBroker Completion Score:\nCompletion Rate × Customer Volume Weight\n\nRevenue Contribution:\nCustomer fee + margin interest, depending on available data\n\n---",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  },
+  {
+    "id": "tuan_phuc_rag_035",
+    "title": "16. Professional Interests",
+    "content": "## 16. Professional Interests\n\nOutside of work, Tuan Phuc actively explores areas that strengthen his analytics and technical thinking:\n\n- Financial markets, trading behavior, order flow, and price action research\n- Building AI-assisted workflows for data analysis, reporting, and business insights\n- Designing MIS dashboards, KPI systems, and analytics products that are easier for business users to act on\n- Automating repetitive reporting tasks with Python, SQL, and lightweight data pipelines\n- Studying data architecture, RAG knowledge bases, AI agents, and practical analytics engineering",
+    "metadata": {
+      "owner": "Nguyen Tuan Phuc",
+      "use_case": "resume_landing_page_recruiter_chatbot",
+      "confidentiality": "public_safe_mock_data_only",
+      "created_at": "2026-05-17"
+    }
+  }
+]

@@ -2,78 +2,45 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/* ─────────────────────── Knowledge Base ─────────────────────── */
-const KB: Record<string, string> = {
-  bio:
-    "Nguyen Tuan Phuc — data analyst in Ho Chi Minh City (GMT+7). Builds KPI dashboards, ETL pipelines, and AI-assisted reporting for securities firms. Currently at Yuanta Vietnam, previously at VNDirect. Originally trained as a mechatronics engineer.",
-  current_role:
-    "Data Analyst at Yuanta Vietnam, Jan 2025–present. Stack: SQL Server, Python, Power BI. Owns MIS dashboards, KPI reports, ETL, and an AI-assisted reporting pipeline that delivers Level-2 diagnostic insight via LLM. Designed a LangChain-style router PoC for internal financial Q&A.",
-  prior_role:
-    "Business Intelligence Analyst at VNDirect Securities, Jan–Dec 2024. Power BI dashboards with Tabular Editor for DAX optimization, ML-driven customer segmentation, authored a Customer Intelligence framework with CI codebooks tied to sales payout policies.",
-  earlier_roles:
-    "Pre-analytics: ADP Group MEP engineer / draftsman 2017–2022, Nova Service Group procurement specialist 2022. Bachelor of Mechatronics Engineering, Saigon Technology University, 2013–2017.",
-  skills:
-    "Querying: SQL, T-SQL, SQL Server, DAX, data marts, star schema. ETL: Python (pandas, NumPy), scheduled jobs, reporting automation, Git, Docker. AI: LLM prompting, agentic workflows, JSON context design, RAG, Playwright, diagnostic commentary. BI: Power BI, Tabular Editor, Tableau, Looker Studio. Analysis: customer segmentation, funnel/cohort, KPI design, R. Platforms: Azure, GCP.",
-  projects:
-    "Featured: (1) Reporting Automation Pipeline — Python; stored procs refresh DWH from CIU, LLM produces Level-2 diagnostic insight (why metrics moved, not just what), Playwright renders HTML→PDF, daily email out. (2) LLM Router PoC for Financial Q&A — rule-driven orchestration, 4 layers (classifier · YAML decision table · tools · answer), 4 domains (equity research, portfolio MIS, market data, clarify). Also: Performance Dashboard & KPI Suite (weekly Power BI on SQL Server data marts), Customer Intelligence Framework (RFM + ML segmentation), Paid-acquisition Funnel & NAV Analytics (Meta/Google/TikTok → landing → lead → account → deposit → trade).",
-  certs:
-    "Google Business Intelligence Certificate (2024), Google Data Analytics Certificate (2023), HCMUS Informatics Center Data Analytics (2023).",
-  contact:
-    "Email phucngt.me@gmail.com (24h reply), phone +84 93 559 3723, LinkedIn /in/tuan-phuc-nguyen-a02976150, portfolio sites.google.com/view/nguyen-tuan-phuc. HCMC · GMT+7. Open to data analyst and BI roles, HCMC or remote.",
-};
-
-/* ────────────── Rule-first decision table ────────────── */
-type Rule = { intent: keyof typeof KB; label: string; keys: string[] };
-const RULES: Rule[] = [
-  { intent: "contact",       label: "contact",       keys: ["contact", "email", "reach", "hire", "phone", "linkedin", "connect"] },
-  { intent: "current_role",  label: "current role",  keys: ["yuanta", "now", "current", "currently", "today", "present", "doing"] },
-  { intent: "prior_role",    label: "prior role",    keys: ["vndirect", "previous", "before", "past", "last job"] },
-  { intent: "earlier_roles", label: "earlier roles", keys: ["mechatronics", "engineering background", "adp", "nova", "mep", "draftsman", "procurement", "first job"] },
-  { intent: "projects",      label: "projects",      keys: ["project", "portfolio", "built", "pipeline", "router", "llm", "ai", "dashboard", "funnel", "intelligence"] },
-  { intent: "skills",        label: "skills",        keys: ["skill", "stack", "tool", "tech", "language", "sql", "python", "power bi", "dax", "know"] },
-  { intent: "certs",         label: "certs",         keys: ["certificate", "cert", "google cert", "training", "coursera", "education"] },
-];
-
-function classify(q: string): Rule | { intent: "bio"; label: string } {
-  const s = q.toLowerCase();
-  for (const r of RULES) if (r.keys.some((k) => s.includes(k))) return r;
-  return { intent: "bio", label: "general" };
-}
-
-function buildContext(intent: keyof typeof KB | "bio"): string {
-  const sections: (keyof typeof KB)[] = ["bio"];
-  if (intent !== "bio") sections.push(intent);
-  return sections.map((s) => `[${s}]\n${KB[s]}`).join("\n\n");
-}
-
-/* ────────── Lightweight markdown → safe HTML ──────────
-   Handles **bold**, *italic*, `code`, and line breaks. Escapes first
-   so it's safe to inject via dangerouslySetInnerHTML. */
+/* ────────────────────────── Markdown ────────────────────────── */
 function escapeHtml(s: string): string {
   return s.replace(/[&<>"']/g, (c) =>
-    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]!
+    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!)
   );
 }
 
-function renderMarkdown(s: string): string {
-  return escapeHtml(s)
-    .replace(/\*\*([^*\n]+)\*\*/g, "<strong>$1</strong>")
-    .replace(/(^|[\s(])\*([^*\n]+)\*/g, "$1<em>$2</em>")
-    .replace(
-      /`([^`\n]+)`/g,
-      '<code class="rounded bg-ink-100 px-1 py-0.5 font-mono text-[12px] text-ink-900">$1</code>'
-    )
-    .replace(/\n/g, "<br>");
+/** Tiny markdown -> HTML: bold, italic, inline code, bullets, hr, line breaks. */
+function renderMd(src: string): string {
+  let s = escapeHtml(src);
+  // Inline code
+  s = s.replace(/`([^`]+)`/g, '<code class="rounded bg-ink-100 px-1 py-0.5 font-mono text-[12px]">$1</code>');
+  // Bold **x**
+  s = s.replace(/\*\*([^*]+?)\*\*/g, '<strong class="font-medium text-ink-900">$1</strong>');
+  // Italic *x* or _x_
+  s = s.replace(/(^|[^*])\*([^*\n]+?)\*(?!\*)/g, "$1<em>$2</em>");
+  s = s.replace(/(^|[^_])_([^_\n]+?)_(?!_)/g, "$1<em>$2</em>");
+  // Horizontal rule
+  s = s.replace(/^\s*---\s*$/gm, '<hr class="my-2 border-ink-100">');
+  // Bullets
+  s = s.replace(/(?:^|\n)([-*])\s+(.+)/g, (_m, _b, txt) => "\n<li class=\"ml-4 list-disc\">" + txt + "</li>");
+  s = s.replace(/(?:<li[^>]*>.*?<\/li>\n?)+/g, (block) => '<ul class="my-1.5 space-y-1">' + block.replace(/\n/g, "") + "</ul>");
+  // Headers
+  s = s.replace(/^###\s+(.+)$/gm, '<div class="mt-2 font-medium text-ink-900">$1</div>');
+  s = s.replace(/^##\s+(.+)$/gm, '<div class="mt-2 text-[14px] font-medium text-ink-900">$1</div>');
+  s = s.replace(/^#\s+(.+)$/gm, '<div class="mt-2 text-[15px] font-medium text-ink-900">$1</div>');
+  // Line breaks
+  s = s.replace(/\n/g, "<br>");
+  return s;
 }
 
-/* ────────────────────── UI ────────────────────── */
+/* ────────────────────────── UI ────────────────────────── */
 type Msg = { role: "user" | "assistant"; text: string };
 
 const SUGGESTIONS: { label: string; q: string }[] = [
-  { label: "What's his stack?",     q: "What's his stack?" },
-  { label: "AI projects",           q: "Tell me about his AI projects" },
-  { label: "Current role",          q: "Where is he working now?" },
-  { label: "Contact",               q: "How do I contact him?" },
+  { label: "What's his stack?",   q: "What's his stack?" },
+  { label: "Featured projects",   q: "Tell me about his featured AI projects" },
+  { label: "Securities domain",   q: "What is his securities analytics experience?" },
+  { label: "Roles he fits",       q: "What kind of roles is he suitable for?" },
 ];
 
 export default function Chatbot() {
@@ -82,19 +49,16 @@ export default function Chatbot() {
     {
       role: "assistant",
       text:
-        "Hi — I'm a tiny LLM router pointed at Phuc's portfolio. Ask me about his work, stack, projects, or how to reach him.",
+        "Hi, I'm Tuan Phuc's portfolio assistant. Ask me about his experience in SQL Server, Python, Power BI, MIS dashboards, ETL, securities analytics, customer funnel, and reporting automation.",
     },
   ]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
-  const [routeLabel, setRouteLabel] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
   }, [messages, busy]);
 
   useEffect(() => {
@@ -108,29 +72,45 @@ export default function Chatbot() {
     setInput("");
     setBusy(true);
 
-    const rule = classify(q);
-    setRouteLabel(rule.label);
-    setTimeout(() => setRouteLabel(null), 2600);
-    const context = buildContext(rule.intent);
+    // Reserve an empty assistant bubble we'll stream into
+    setMessages((m) => [...m, { role: "assistant", text: "" }]);
 
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ context, question: q }),
+        body: JSON.stringify({ question: q }),
       });
-      const data = await res.json();
-      if (!res.ok || !data.answer) throw new Error(data.error || "No answer");
-      setMessages((m) => [...m, { role: "assistant", text: data.answer }]);
+
+      if (!res.ok || !res.body) {
+        throw new Error("chat request failed");
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let acc = "";
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        acc += decoder.decode(value, { stream: true });
+        // update last (assistant) message in-place
+        setMessages((m) => {
+          const last = m[m.length - 1];
+          if (!last || last.role !== "assistant") return m;
+          return [...m.slice(0, -1), { ...last, text: acc }];
+        });
+      }
+      if (!acc.trim()) throw new Error("empty response");
     } catch {
-      setMessages((m) => [
-        ...m,
-        {
-          role: "assistant",
-          text:
-            "The AI service is unavailable right now. Email Phuc directly: phucngt.me@gmail.com.",
-        },
-      ]);
+      setMessages((m) => {
+        const last = m[m.length - 1];
+        const fallback =
+          "The AI service is unavailable right now. Email Phuc directly: phucngt.me@gmail.com.";
+        if (last && last.role === "assistant" && last.text === "") {
+          return [...m.slice(0, -1), { ...last, text: fallback }];
+        }
+        return [...m, { role: "assistant", text: fallback }];
+      });
     } finally {
       setBusy(false);
     }
@@ -157,14 +137,13 @@ export default function Chatbot() {
   return (
     <div
       className="fixed bottom-5 right-5 z-50 flex w-[calc(100vw-2.5rem)] max-w-[400px] flex-col overflow-hidden rounded-xl border border-ink-200 bg-white shadow-xl sm:bottom-6 sm:right-6"
-      style={{ height: "min(620px, 80vh)" }}
+      style={{ height: "min(640px, 82vh)" }}
     >
       <header className="flex items-start justify-between border-b border-ink-100 px-4 py-3">
         <div>
           <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-400">
-            Ask about Phuc
+            Portfolio assistant
           </div>
-          <div className="mt-0.5 text-[12.5px] text-ink-900">LLM Router demo · live</div>
         </div>
         <button
           type="button"
@@ -178,30 +157,44 @@ export default function Chatbot() {
         </button>
       </header>
 
-      {routeLabel && (
-        <div className="flex items-center gap-1.5 border-b border-ink-100 bg-ink-25 px-4 py-1.5 font-mono text-[10px] uppercase tracking-wider text-ink-500">
-          <span>routing</span>
-          <svg className="h-2.5 w-2.5" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth={1.5}>
-            <path d="M2 6h8M7 3l3 3-3 3" />
-          </svg>
-          <span className="text-ink-900">{routeLabel}</span>
-        </div>
-      )}
+      {/* retrieved-sources strip removed for recruiter-facing build */}
 
       <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto px-4 py-4 text-[13.5px] leading-relaxed">
-        {messages.map((m, i) => (
-          <div key={i} className={m.role === "user" ? "flex justify-end" : "flex"}>
-            <div
-              className={
-                m.role === "user"
-                  ? "max-w-[85%] rounded-2xl rounded-tr-sm bg-ink-900 px-3.5 py-2.5 text-white"
-                  : "max-w-[85%] rounded-2xl rounded-tl-sm bg-ink-25 px-3.5 py-2.5 text-ink-700"
-              }
-              dangerouslySetInnerHTML={{ __html: renderMarkdown(m.text) }}
-            />
-          </div>
-        ))}
-        {busy && (
+        {messages.map((m, i) => {
+          // skip empty assistant placeholder — typing dots render separately
+          if (m.role === "assistant" && m.text === "" && i === messages.length - 1) return null;
+          return (
+            <div key={i} className={m.role === "user" ? "flex justify-end" : "flex"}>
+              <div
+                className={
+                  m.role === "user"
+                    ? "max-w-[85%] rounded-2xl rounded-tr-sm bg-ink-900 px-3.5 py-2.5 text-white"
+                    : "max-w-[85%] rounded-2xl rounded-tl-sm bg-ink-25 px-3.5 py-2.5 text-ink-700"
+                }
+              >
+                {m.role === "assistant" ? (
+                  <>
+                    <span
+                      // tiny markdown renderer, escaped before format substitution
+                      dangerouslySetInnerHTML={{ __html: renderMd(m.text) }}
+                    />
+                    {busy && i === messages.length - 1 && (
+                      <span className="ml-0.5 inline-block h-3 w-[1px] -translate-y-px animate-pulse bg-ink-400" />
+                    )}
+                  </>
+                ) : (
+                  m.text.split("\n").map((line, j, arr) => (
+                    <span key={j}>
+                      {line}
+                      {j < arr.length - 1 && <br />}
+                    </span>
+                  ))
+                )}
+              </div>
+            </div>
+          );
+        })}
+        {busy && messages[messages.length - 1]?.text === "" && (
           <div className="flex">
             <div className="rounded-2xl rounded-tl-sm bg-ink-25 px-3.5 py-2.5">
               <span className="inline-flex items-center gap-1">
@@ -265,10 +258,7 @@ function Dot({ delay }: { delay: number }) {
   return (
     <span
       className="inline-block h-1.5 w-1.5 rounded-full bg-ink-300"
-      style={{
-        animation: "cb-bounce 1.2s infinite ease-in-out",
-        animationDelay: `${delay}ms`,
-      }}
+      style={{ animation: "cb-bounce 1.2s infinite ease-in-out", animationDelay: `${delay}ms` }}
     />
   );
 }
