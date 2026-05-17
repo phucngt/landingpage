@@ -67,7 +67,7 @@ User question: ${question}`;
       },
       body: JSON.stringify({
         model: MODEL,
-        max_tokens: 600,
+        max_tokens: 350,
         stream: true,
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
