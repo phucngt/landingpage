@@ -339,5 +339,248 @@
       "confidentiality": "public_safe_mock_data_only",
       "created_at": "2026-05-17"
     }
+  },
+  {
+    "id": "md_readme_00",
+    "title": "How chunking works",
+    "content": "## How chunking works\n\nEach markdown file is split on level-2 headings (`##`). Each section becomes\none retrieval chunk with:\n\n- `id`: `md_<filename-slug>_<index>`\n- `title`: the heading text\n- `content`: heading + body until the next `##`\n\nFiles **without** any `##` headings become a single chunk per file, titled\nfrom the filename.",
+    "metadata": {
+      "source_file": "README.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_readme_01",
+    "title": "Example",
+    "content": "## Example\n\n```markdown",
+    "metadata": {
+      "source_file": "README.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_readme_02",
+    "title": "LLM Router PoC — Architecture",
+    "content": "## LLM Router PoC — Architecture\n\nA four-layer pipeline: classifier → decision table → tools → answer.\nThe decision table lives in YAML so non-engineers can edit routing rules.",
+    "metadata": {
+      "source_file": "README.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_readme_03",
+    "title": "LLM Router PoC — Domains",
+    "content": "## LLM Router PoC — Domains\n\nFour domains today: equity research, portfolio MIS, market data, clarify.\n```\n\n→ produces 2 chunks the chatbot can retrieve over.",
+    "metadata": {
+      "source_file": "README.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_readme_04",
+    "title": "Workflow",
+    "content": "## Workflow\n\n1. Drop `.md` files here.\n2. Run `npm run dev` (or `npm run build`) — the prebuild script regenerates\n   `data/knowledge.json` automatically.\n3. Commit + push. Vercel rebuilds the KB on every deploy.",
+    "metadata": {
+      "source_file": "README.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_readme_05",
+    "title": "Tips",
+    "content": "## Tips\n\n- Keep section titles **specific** and **keyword-rich** — they get a 3× score\n  weight during retrieval.\n- Don't put confidential company data here — these files end up in the\n  bundled site and are shipped to recruiters' browsers via the API context.\n- For a one-off note that doesn't need headings, just write the file and\n  let it become a single chunk.",
+    "metadata": {
+      "source_file": "README.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_ai_projects_00",
+    "title": "Reporting Automation Pipeline (AI-assisted, production)",
+    "content": "## Reporting Automation Pipeline (AI-assisted, production)\n\nA production reporting pipeline running daily for the brokerage business. Built end-to-end in Python:\n\n- Stored-procedure jobs refresh the data warehouse (DWH) from the CIU core system on schedule\n- An agent fetches the day's market-context PDF from the firm's research portal\n- DWH metrics + market PDF are merged into a structured JSON prompt\n- An LLM (Claude / GPT class) generates the report as HTML + CSS, including **Level-2 diagnostic insight** — commentary on *why* metrics moved, not just *what* they did\n- Playwright renders the HTML deterministically to PDF\n- An SMTP job emails the PDF to stakeholders before the morning meeting\n\nThe Level-2 insight layer is what makes this stand out. Standard MIS dashboards stop at descriptive metrics (Level 1: \"NAV is down 3%\"). This pipeline goes a step further (Level 2: \"NAV is down 3% — driven by margin unwind on tech tickers following yesterday's bond auction\"), grounded in both the warehouse data and the day's market narrative.\n\nStack: Python, SQL Server, OpenAI/Anthropic LLM, Playwright, JSON prompt design, SMTP. Production cadence: daily.",
+    "metadata": {
+      "source_file": "ai_projects.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_ai_projects_01",
+    "title": "LLM Router for Financial Q&A (PoC, internal)",
+    "content": "## LLM Router for Financial Q&A (PoC, internal)\n\nA LangChain-style router PoC Phuc designed for an internal financial Q&A chatbot at the brokerage. Built as a clean four-layer architecture so routing rules and prompt design stay independently editable:\n\n1. **Classifier** — small model or rules tags the incoming question with an intent\n2. **Decision table** — a YAML file maps intent → which downstream tool/domain to invoke (no code changes to add a new route)\n3. **Tools** — domain-specific handlers: equity research lookup, portfolio MIS query, market data fetch, clarify-and-ask-back\n4. **Answer generator** — template + LLM produces the grounded reply\n\nFour domains live today: equity research, portfolio MIS, market data, clarify. The whole pipeline ships with a mock fallback so engineers can dev + run tests without burning LLM API keys.\n\nThe design principle: keep routing logic (YAML) separate from prompt design (templates) separate from the model itself. Swap any of the three without touching the other two.\n\nStack: Python, FastAPI, LangChain-style routing, YAML decision tables, LLM orchestration, Pytest.",
+    "metadata": {
+      "source_file": "ai_projects.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_ai_projects_02",
+    "title": "What \"AI projects\" means on this portfolio",
+    "content": "## What \"AI projects\" means on this portfolio\n\nWhen recruiters ask about AI projects on Phuc's portfolio, point at these two — they are the dedicated AI work, not just \"uses ML somewhere\". Both are anchored in real brokerage operations: one ships PDFs to stakeholders every morning in production, the other is the PoC that the production pipeline borrows architecture ideas from.\n\nPhuc's broader AI skillset: LLM prompting, agentic workflows, JSON context design, retrieval (RAG) over market PDFs and internal knowledge bases, Playwright-based deterministic rendering, diagnostic commentary generation.",
+    "metadata": {
+      "source_file": "ai_projects.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_example_00",
+    "title": "How does Phuc structure dashboards?",
+    "content": "## How does Phuc structure dashboards?\n\nHe treats every dashboard as a small product: clear KPI definitions at the\ntop, drilldowns one click away, and \"what changed / why / who is impacted /\nwhat to do\" stitched into the layout so the page itself answers business\nquestions instead of just charting them.",
+    "metadata": {
+      "source_file": "example.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_example_01",
+    "title": "What's Phuc's typical engagement model?",
+    "content": "## What's Phuc's typical engagement model?\n\nStakeholder interview → KPI tree on paper → mock dataset in SQL Server →\nPower BI prototype within a week → iterate weekly with business users\nuntil the report is opened daily without prompting.",
+    "metadata": {
+      "source_file": "example.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_00",
+    "title": "1. Identity",
+    "content": "## 1. Identity\n\nName: Nguyen Tuan Phuc  \nLocation: Ho Chi Minh City, Vietnam  \nTarget roles: Data Analyst, BI Analyst, Business Intelligence Analyst, Analytics Engineer, Data Engineer-oriented Analyst, Data Analyst supporting research or investment teams at securities firms  \nMain positioning: Data Analyst with strong SQL Server, Python, Power BI, ETL, MIS dashboard, KPI reporting, and securities business analytics experience. Now serving firmwide across operations, compliance, and front-office teams at a securities firm.\n\nImportant role clarification:\nTuan Phuc is a DATA Analyst — he builds the data infrastructure, pipelines, dashboards, and datasets that research or investment teams rely on. He does NOT write equity research reports, cover stocks, or perform fundamental company valuation. His value in a research-oriented role is on the data engineering and analytics side: clean data, fast pipelines, reliable reporting — not stock-picking or financial modeling.\n\nShort pitch:\nTuan Phuc is a Data Analyst working in the securities industry. He builds MIS dashboards, KPI reports, SQL Server data marts, ETL pipelines, automated reporting workflows, and customer/trading analytics for business users and management across the entire firm — from marketing and customer analytics to operations, compliance, and front-office reporting.\n\nTone for chatbot:\n- Direct, practical, professional\n- Recruiter-friendly\n- Sound like Tuan Phuc: concise, business-aware, implementation-focused\n- Avoid hype and overclaiming\n- Clearly separate real experience from demo or simulated portfolio work\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_01",
+    "title": "2. Current Professional Positioning",
+    "content": "## 2. Current Professional Positioning\n\nTuan Phuc is best positioned as:\n\n“Data Analyst / BI Analyst with strong data engineering ability in securities analytics.”\n\nCore themes:\n- SQL Server data warehouse work\n- Python automation\n- Power BI / BI dashboarding\n- MIS dashboard design\n- KPI logic and business reporting\n- Customer analytics and funnel analysis\n- Trading, NAV, fee, margin, and activity analytics\n- ETL and reporting pipeline automation\n- Translating business requirements into reporting structures\n\nRecommended landing page headline:\n“Reporting systems and analytics for capital markets.”\n\nAlternative headline:\n“Data Analyst building KPI dashboards, ETL pipelines, and securities business analytics.”\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_02",
+    "title": "3. Resume Summary",
+    "content": "## 3. Resume Summary\n\nCurrent role:\nCompany: Yuanta Vietnam  \nRole: Data Analyst  \nPeriod: Jan 2025 – current  \nDepartment and title progression:\n- Started as Data Analyst (Chuyên viên) in the Marketing department, Data team — focused on customer analytics, trading activity reports, campaign funnels, and customer segmentation.\n- After one year, promoted to Senior Data Analyst (Chuyên viên cao cấp) and transferred to Technical Services, DEV team — scope expanded to serve the entire firm across operations, compliance, front-office, and management reporting.\n- The promotion reflects both title advancement and a significant expansion of responsibility from one department to firmwide coverage.\nMain work:\n- Developed MIS dashboards, KPI reports, ETL pipelines, and automated reporting workflows using SQL Server, Python, Power BI, and Excel.\n- Built and maintained data marts, reporting structures, and data processing pipelines for customer activity, trading, NAV, and operational analytics.\n- Conducted customer behavior, funnel, and business performance analysis to support management reporting and decision-making.\n- Automated data processing and reporting tasks to reduce manual workload.\n- Supported stakeholders with ad hoc analysis, KPI insights, and reporting solutions across all business teams firmwide — not limited to a single department.\n\nPrevious role:\nCompany: VNDirect  \nRole: Business Intelligence Analyst  \nPeriod: Jan 2024 – Dec 2024  \nMain work:\n- Built on-demand dashboards and reports in Power BI.\n- Used Tabular Editor for DAX optimization and PowerBI.tips templates to standardize dashboard layouts.\n- Conducted ad hoc analysis using Power BI, Excel, Python, and machine learning for business analytics and customer segmentation.\n- Developed Customer Intelligence frameworks, CI codebooks, and sales payout policies to support business planning and decision-making.\n\nEarlier analytics role:\nRole: Data Analytics Practitioner  \nPeriod: Jan 2023 – Dec 2023  \nMain work:\n- Applied Python, R, SQL, and Tableau in academic analytics projects using real-world datasets.\n- Delivered actionable insights and achieved top class performance.\n- Portfolio available with examples of work and academic projects.\n\nEarlier non-data experience:\n- Procurement Specialist at Nova Service Group\n- Mechanical Electrical Plumbing Engineer / Draftsman at ADP Group\n\nImportant interpretation:\nTuan Phuc has a non-traditional background moving from engineering/procurement into data analytics. This can be framed positively as strong system thinking, structured problem-solving, and practical business execution.\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_03",
+    "title": "4. Skills",
+    "content": "## 4. Skills\n\nLanguages:\n- SQL\n- Python\n- R\n- DAX\n\nDatabases:\n- MS SQL Server\n\nBI tools:\n- Power BI\n- Tableau\n- Looker Studio\n\nDevOps / engineering:\n- Git\n- Docker\n\nCloud:\n- Azure\n- Google Cloud Platform\n\nSpreadsheets:\n- Excel\n- Google Sheets\n\nAdditional practical strengths from work history:\n- SQL Server views, CTEs, stored procedures, data marts\n- Python automation for Excel and reporting workflows\n- ETL pipeline design\n- KPI calculation logic\n- MIS dashboard structure\n- Customer funnel analysis\n- Customer segmentation\n- Securities business metrics: NAV, trading value, fee, margin, cash-in/out, login, customer activation\n- Dashboard requirement gathering and translation from business needs to data logic\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_04",
+    "title": "5. Domain Knowledge",
+    "content": "## 5. Domain Knowledge\n\nPrimary domain:\nVietnam securities brokerage / capital markets analytics — firmwide scope covering marketing, operations, compliance, and front-office teams.\n\nCareer scope note:\nTuan Phuc began his Yuanta career serving the Marketing and customer analytics side (funnel, activation, segmentation), then expanded to serve Technical Services and firmwide reporting. This means he understands both the customer acquisition analytics perspective and the broader operational/management reporting perspective across a securities firm.\n\nBusiness areas Tuan Phuc understands:\n- Customer onboarding funnel\n- Open Account → Login → Cash-in → NAV → Trading\n- Digital sales vs broker-assisted / Careby customer channels\n- Customer activation and reactivation\n- Customer behavior analysis\n- Trading activity analytics\n- NAV and asset analytics\n- Fee and margin income analytics\n- Broker / branch / sales performance analytics\n- KPI dashboards for management\n- MIS reporting for business teams\n\nImportant metrics and concepts:\n- NAV / Total Net Asset\n- Trading value / matched value\n- Trading fee\n- Margin interest\n- Cash in / cash out\n- Login behavior\n- First Login Rate\n- Returning Login Rate\n- Dormant / inactive customers\n- Customer funnel conversion\n- Broker performance\n- Branch performance\n- Asset turnover / vòng quay tài sản\n- Customer segmentation by NAV, fee, activity, product usage\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_05",
+    "title": "6. Portfolio Strategy Without Confidential Data",
+    "content": "## 6. Portfolio Strategy Without Confidential Data\n\nImportant rule:\nDo not show real company data, customer data, internal dashboards, internal table names that are sensitive, or actual business numbers unless already public or explicitly approved.\n\nSafe ways to showcase work:\n1. Use demo / simulated data.\n2. Show architecture instead of raw data.\n3. Show anonymized dashboard layouts.\n4. Show KPI formulas and business logic using generic field names.\n5. Show SQL / Python patterns with mock tables.\n6. Explain problem → approach → tools → impact without exposing confidential values.\n\nRecommended confidentiality note:\n“Demo data only. No confidential company data is shown. Project structure and logic are inspired by real analytics work.”\n\nPortfolio should not say:\n“I built the exact internal Yuanta dashboard and here is the real result.”\n\nPortfolio should say:\n“Built a securities-style MIS dashboard using mock data to demonstrate KPI logic, funnel tracking, and management reporting structure.”\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_06",
+    "title": "7. Featured Work for Landing Page",
+    "content": "## 7. Featured Work for Landing Page\n\n### Project 1: Securities Customer Funnel Analytics\n\nProblem:\nBusiness teams need to understand where customers drop off from account opening to revenue-generating activity.\n\nFunnel:\nLeads → Open Account → Login → Cash-in → NAV → Place Order\n\nWhat Tuan Phuc can show:\n- Funnel conversion logic\n- Stage-level customer counts\n- Drop-off rate\n- Broker / branch / channel breakdown\n- Time-based trend\n- Action priority list\n\nTools:\nSQL Server, Python, Power BI, Excel\n\nSafe demo version:\nUse synthetic customer data with fake IDs, fake dates, and fake transaction values.\n\nRecruiter answer:\n“I built this type of analysis to help business teams see where users get stuck in the journey, then prioritize activation actions such as encouraging login, cash-in, or first trade.”\n\n---\n\n### Project 2: Broker Performance MIS Dashboard\n\nProblem:\nManagement needs to monitor broker and branch performance using consistent KPI logic.\n\nPossible KPIs:\n- New accounts\n- Login rate\n- Cash-in customers\n- Trading customers\n- NAV\n- Trading value\n- Fee\n- Margin debt\n- Customer activation rate\n- Revenue contribution\n\nWhat Tuan Phuc can show:\n- KPI cards\n- Trend charts\n- Ranking table\n- Branch / broker filter\n- Drilldown table\n- KPI explanation popovers\n\nTools:\nSQL Server, Power BI, Python, Excel\n\nSafe demo version:\nMock broker names, branch names, dates, and values.\n\nRecruiter answer:\n“I focus on making KPI dashboards actionable. A good MIS dashboard should show what changed, why it changed, who is impacted, and what action should be taken next.”\n\n---\n\n### Project 3: SQL Server ETL Pipeline for Reporting\n\nProblem:\nManual reporting and Excel processing take too much time and are error-prone.\n\nWhat Tuan Phuc can show:\n- Source → staging → fact table → dashboard flow\n- Incremental update logic\n- Data quality checks\n- Batch logging\n- Reusable SQL/Python functions\n- Automated Excel output\n\nTools:\nSQL Server, Python, pandas, SQLAlchemy/pyodbc, Prefect-style workflow, Git\n\nSafe demo version:\nUse fake source tables such as `raw_customer_activity`, `raw_trade`, `fact_customer_daily`, `dim_date`.\n\nRecruiter answer:\n“I can work beyond dashboard visuals. I build the data preparation layer, reporting tables, and automation logic so the dashboard is stable and refreshable.”\n\n---\n\n### Project 4: Customer NAV and Trading Activity Analytics\n\nProblem:\nBusiness teams need to understand customer value and behavior, not only account count.\n\nMetrics:\n- NAV\n- Trading value\n- Fee\n- Margin debt\n- Cash balance\n- Product usage\n- Activity status\n- Customer segment\n\nWhat Tuan Phuc can show:\n- Customer segmentation logic\n- NAV distribution\n- Activity buckets\n- High-value customer analysis\n- Dormant or inactive customer detection\n- Reactivation priority logic\n\nTools:\nSQL Server, Python, Power BI\n\nSafe demo version:\nSynthetic customer portfolio dataset.\n\nRecruiter answer:\n“I look at customer value through behavior and monetization, not only user count. In securities analytics, login without NAV or trading does not create much business value.”\n\n---\n\n### Project 5: Automated Excel Reporting Workflow\n\nProblem:\nBusiness users often rely on Excel reports that take hours to process manually.\n\nWhat Tuan Phuc can show:\n- Python script to standardize files\n- Column mapping\n- Merge / clean / validate data\n- Export formatted report\n- Reduce repetitive manual work\n\nTools:\nPython, pandas, openpyxl, Excel\n\nSafe demo version:\nUse mock weekly marketing, trading, or customer files.\n\nRecruiter answer:\n“I use Python to automate repetitive Excel reporting tasks, especially when business teams need quick outputs but the data format is inconsistent.”\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_07",
+    "title": "8. How the Chatbot Should Answer Recruiters",
+    "content": "## 8. How the Chatbot Should Answer Recruiters\n\n### If recruiter asks: “Can I see your real dashboards?”\n\nAnswer:\n“I cannot share internal company dashboards or real business data because they are company assets. However, I can show demo versions using synthetic data that preserve the structure, KPI logic, dashboard design, and analytical approach.”\n\n### If recruiter asks: “How do I know the work is real?”\n\nAnswer:\n“The portfolio focuses on realistic business logic, SQL patterns, dashboard structure, ETL design, and KPI definitions based on my actual working experience. Sensitive company data is replaced with mock data.”\n\n### If recruiter asks: “What makes you different from a normal dashboard builder?”\n\nAnswer:\n“I do not only build visuals. I also design the data logic behind the report: SQL Server tables, ETL flow, KPI formulas, data quality checks, and business interpretation. This helps dashboards become reliable management tools rather than only charts.”\n\n### If recruiter asks: “What domain are you strongest in?”\n\nAnswer:\n“My strongest domain is securities business analytics, especially customer funnel, NAV, trading activity, broker performance, fee, margin, and management reporting.”\n\n### If recruiter asks: “Are you more Data Analyst or Data Engineer?”\n\nAnswer:\n“I am primarily a Data Analyst, but I have strong data engineering capability. I can build SQL Server reporting structures, automate ETL with Python, and prepare reliable datasets for Power BI or MIS dashboards.”\n\n### If recruiter asks: “What type of role are you looking for?”\n\nAnswer:\n“I am suitable for Data Analyst, BI Analyst, Analytics Engineer, or data analyst roles that need strong SQL, Python, dashboarding, and business understanding, especially in finance, securities, fintech, or data-driven operations.”\n\n### If recruiter asks: “Can you work with business stakeholders?”\n\nAnswer:\n“Yes. Much of my work involves translating business questions into KPIs, SQL logic, dashboards, and reports for management and business teams. I focus on making metrics clear, actionable, and aligned with business decisions.”\n\n### If recruiter asks: “What is your strongest technical skill?”\n\nAnswer:\n“My strongest technical area is SQL Server analytics and reporting logic. I also use Python to automate data processing and Power BI to deliver business dashboards.”\n\n### If recruiter asks: “Do you use machine learning?”\n\nAnswer:\n“I have used machine learning for analytics and customer segmentation, but for business reporting I usually prefer transparent, explainable logic because stakeholders need to understand and trust the result.”\n\n### If recruiter asks about salary, mức lương, compensation, pay, salary expectation, lương mong muốn, or similar\n\nDo NOT redirect to “ask Phuc directly.” Instead, give an informed market-based answer using the data below.\n\nVietnam data analyst salary market (2025–2026, securities / finance / fintech sector):\n\nJunior Data Analyst (0–2 yrs): 12–22 million VND/month  \nMid-level Data Analyst (2–4 yrs): 22–40 million VND/month  \nSenior Data Analyst (4+ yrs): 40–70 million VND/month  \nBI Analyst / Analytics Engineer (mid): 25–45 million VND/month  \nData Analyst at fund / asset management (buy-side): 25–50 million VND/month  \nData Analyst at securities firm / sell-side (brokerage): 20–40 million VND/month  \n\nSecurities and finance sector typically pays 15–25% above the general market average for the same level.\n\nPhuc's profile context for salary framing:\n- ~2.5 years total data experience (VNDirect 2024 + Yuanta 2025–present)\n- Domain: securities analytics, firmwide scope, SQL Server, Python, Power BI\n- Progression: promoted from Data Analyst (Chuyên viên) to Senior Data Analyst (Chuyên viên cao cấp) at Yuanta after 1 year, with scope expanding from Marketing dept to firmwide Technical Services\n- Level: confirmed Senior — use the senior band when framing salary\n\nAnswer framing instructions:\n- Give the market range for the relevant position (match to what the recruiter is asking about)\n- Anchor Phuc in the mid-level band of that range\n- State that his exact expectation depends on the full package (scope, role level, benefits) and is best confirmed directly\n- Keep it factual and confident — not evasive\n\nExample answer:\n“For a mid-level Data Analyst with 2–3 years in the securities sector in HCMC, the market typically runs **25–40 million VND/month** depending on scope and firm size. Phuc sits squarely in that band given his firmwide analytics scope at Yuanta and prior BI work at VNDirect. Exact expectations are best confirmed directly — he's open to discussing based on the full role and package.”\n\nIf the recruiter asks in English, answer in English. If Vietnamese, answer in Vietnamese with VND figures.\n\n### If recruiter asks: “Do you do securities research or equity analysis?”\n\nAnswer:\n“No — my role is on the data side, not the research authoring side. I build the pipelines, dashboards, and datasets that analysts and PMs rely on to do their research. Think of it as the data infrastructure layer: clean data in, reliable outputs out. I don't write stock reports or cover companies.”\n\n### If recruiter asks: “Can you support a research team with data?”\n\nAnswer:\n“Yes, that's squarely my strength. I can build the data infrastructure a research team needs — market data pipelines, structured datasets, automated reporting, and dashboards that surface the right signals. I focus on making the data layer fast, reliable, and easy for analysts to query.”\n\n### If recruiter asks: “Why did you move from engineering to data?”\n\nAnswer:\n“My engineering background gave me structured problem-solving and system thinking. I moved into data because I enjoy turning business problems into measurable logic, automated workflows, and decision-ready reports.”\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_08",
+    "title": "9. Suggested Chatbot System Prompt",
+    "content": "## 9. Suggested Chatbot System Prompt\n\nYou are a professional AI assistant embedded in Nguyen Tuan Phuc’s resume landing page.\n\nYour role:\n- Help recruiters understand Tuan Phuc’s background, skills, projects, and fit for data roles.\n- Answer as a concise professional representative of Tuan Phuc.\n- Use the RAG knowledge base as the source of truth.\n- Do not invent confidential data, exact internal business numbers, or private company details.\n- If asked for real company dashboards or data, explain that they cannot be shared and offer demo/synthetic alternatives.\n- Keep answers clear, practical, and recruiter-friendly.\n- Do not overclaim seniority.\n- Emphasize SQL Server, Python, Power BI, ETL, MIS dashboards, KPI reporting, and securities analytics.\n- When relevant, explain work using: Problem → Approach → Tools → Impact.\n- If unsure, say the information is not available in the portfolio and suggest contacting Tuan Phuc directly.\n\nTone:\nDirect, confident, professional, concise.\n\nNever say:\n- “I have access to company data.”\n- “Here is the real internal dashboard.”\n- “Exact confidential values are...”\n- “Tuan Phuc led the entire company strategy” unless supported.\n\nPreferred answer length:\n2–5 short paragraphs or concise bullets.\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_09",
+    "title": "10. Suggested Opening Message for Chatbot",
+    "content": "## 10. Suggested Opening Message for Chatbot\n\nHi, I’m Tuan Phuc’s portfolio assistant.  \nYou can ask me about his experience in SQL Server, Python, Power BI, MIS dashboards, ETL pipelines, securities analytics, customer funnel analysis, and reporting automation.\n\nExample questions:\n- What kind of data projects has he built?\n- Is he more Data Analyst or Data Engineer?\n- How does he handle confidential company data in his portfolio?\n- What roles is he suitable for?\n- What is his securities analytics experience?\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_10",
+    "title": "11. Suggested Landing Page Project Card Copy",
+    "content": "## 11. Suggested Landing Page Project Card Copy\n\n### Securities Customer Funnel Analytics\nA demo analytics project showing how customers move from account opening to login, cash-in, NAV, and trading activity. Built to demonstrate funnel logic, KPI design, and action-oriented reporting for securities business teams. Demo data only.\n\n### Broker Performance MIS\nA management dashboard concept for monitoring broker and branch performance across customer activation, NAV, trading value, fee, and margin-related KPIs. Focused on practical decision support and KPI explainability. Demo data only.\n\n### SQL Server Reporting Data Mart\nA reporting data model that converts raw customer, asset, trading, and activity data into dashboard-ready fact tables. Includes staging, aggregation logic, incremental refresh thinking, and data quality checks. Demo structure only.\n\n### Automated Excel Reporting Workflow\nA Python automation workflow that standardizes messy Excel files, maps inconsistent columns, validates data, and exports business-ready reports. Designed to reduce repetitive manual processing.\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_11",
+    "title": "12. Safe Mock Table Names for Portfolio",
+    "content": "## 12. Safe Mock Table Names for Portfolio\n\nUse generic names only:\n- dim_date\n- dim_customer\n- dim_branch\n- dim_broker\n- fact_customer_daily\n- fact_trade_daily\n- fact_asset_daily\n- fact_cash_flow_daily\n- fact_login_daily\n- fact_customer_funnel\n- rpt_broker_mis\n- rpt_customer_activation\n\nAvoid using real internal table names unless already approved.\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_12",
+    "title": "13. Safe Example KPI Definitions",
+    "content": "## 13. Safe Example KPI Definitions\n\nFirst Login Rate:\nUsers who logged in for the first time / Accounts opened\n\nCash-in Rate:\nCustomers with cash-in / Accounts opened\n\nTrading Conversion Rate:\nCustomers with at least one matched order / Accounts opened\n\nActive Trading Customer:\nCustomer with trading value greater than 0 in the selected period\n\nNAV Customer:\nCustomer with end-of-period NAV greater than 0\n\nDormant Customer:\nCustomer who previously logged in or traded but has no recent activity for a defined period\n\nBroker Completion Score:\nCompletion Rate × Customer Volume Weight\n\nRevenue Contribution:\nCustomer fee + margin interest, depending on available data\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_13",
+    "title": "14. Implementation Notes for Landing Page AI",
+    "content": "## 14. Implementation Notes for Landing Page AI\n\nRecommended RAG flow:\n1. Store this file as a markdown knowledge base.\n2. Chunk by sections using headings.\n3. Embed chunks into vector database or use simple keyword retrieval for a small site.\n4. At answer time, retrieve top 3–5 relevant chunks.\n5. Pass retrieved chunks into the AI API with the system prompt.\n6. Add a strict instruction: answer only from retrieved context and do not expose confidential data.\n\nRecommended lightweight stack:\n- Frontend: HTML / JavaScript or Next.js\n- Backend: small API route for chat\n- RAG storage: JSON file, markdown chunks, SQLite, Supabase, or simple in-memory search\n- AI model: small/fast model for recruiter Q&A\n\nImportant security note:\nNever put AI API key directly in frontend HTML or JavaScript.  \nUse a backend API route or serverless function.\n\n---",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_14",
+    "title": "15. Limitations",
+    "content": "## 15. Limitations\n\nThe chatbot should not answer:\n- private company data\n- exact internal revenue numbers\n- customer-level information\n- confidential dashboard screenshots\n- proprietary internal logic not approved for public sharing\n\nSafe response when unsure:\n“I do not have that information in the public portfolio. Tuan Phuc can provide more detail in an interview while respecting company confidentiality.”\n\n\n\n# Additional Section — Professional Interests",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
+  },
+  {
+    "id": "md_tuan_phuc_landingpage_rag_15",
+    "title": "Professional Interests",
+    "content": "## Professional Interests\n\nOutside of work, Tuan Phuc actively explores areas that strengthen analytics, systems thinking, and technical execution.\n\nMain interests:\n- Financial markets, trading behavior, order flow, and price action research\n- AI-assisted workflows for analytics, reporting, and business insights\n- MIS dashboard systems and KPI-driven management reporting\n- Python automation for repetitive business reporting tasks\n- SQL Server data modeling and reporting architecture\n- RAG knowledge bases, AI agents, and practical analytics engineering\n- Data-driven decision support for finance and securities operations\n\nImportant positioning:\nThese interests are presented from a professional analytics and systems perspective, not as speculative retail trading content.\n\nSuggested short landing page version:\n\n“I’m interested in financial markets, trading analytics, AI-assisted data workflows, MIS dashboard design, and automation systems that turn messy business data into usable decision support.”\n\nSuggested recruiter-friendly version:\n\n“Outside of day-to-day reporting work, Tuan Phuc actively studies financial market behavior, analytics engineering, AI-assisted workflows, and practical automation systems for business intelligence and reporting.”",
+    "metadata": {
+      "source_file": "tuan_phuc_landingpage_rag.md",
+      "generated": true
+    }
   }
 ]

@@ -5,16 +5,18 @@ type Role = {
   company: string;
   companyHref?: string;
   period: string;
+  promotionNote?: string;
   bullets: React.ReactNode[];
   tags?: string[];
 };
 
 const roles: Role[] = [
   {
-    title: "Data Analyst",
+    title: "Senior Data Analyst",
     company: "Yuanta Vietnam",
     companyHref: "https://yuanta.com.vn/",
     period: "Jan 2025 — Present",
+    promotionNote: "Promoted from Data Analyst · Jan 2026",
     bullets: [
       "Built MIS dashboards, KPI reports and ETL pipelines on SQL Server, Python and Power BI — replacing manual workbooks for management.",
       "Designed data marts and reporting structures for customer activity, trading, NAV and operational analytics.",
@@ -95,6 +97,12 @@ export default function Experience() {
                     {r.period}
                   </div>
                 </div>
+                {r.promotionNote && (
+                  <div className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-ink-25 px-2.5 py-0.5 font-mono text-[10px] tracking-wider text-ink-500">
+                    <span className="text-accent">↑</span>
+                    {r.promotionNote}
+                  </div>
+                )}
                 <ul className="mt-4 space-y-2 text-[14px] leading-relaxed text-ink-500">
                   {r.bullets.map((b, i) => (
                     <li key={i} className="flex gap-3">

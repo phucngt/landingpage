@@ -49,7 +49,7 @@ export default function About() {
               }
             />
             <MetaCell k="Focus" v="KPI & MIS" />
-            <MetaCell k="Domain" v="Brokerage data" />
+            <MetaCell k="Domain" v="Securities · All Depts" />
             <MetaCell k="Languages" v="EN · VI" />
           </ul>
         </div>

@@ -28,11 +28,11 @@ const groups: Group[] = [
   },
   {
     label: "Analysis",
-    items: ["Customer segmentation", "Funnel & cohort analysis", "KPI design", "R", "Statistical modeling"],
+    items: ["Customer segmentation", "Funnel & cohort analysis", "KPI design", "Statistical modeling"],
   },
   {
     label: "Platforms",
-    items: ["Azure", "Google Cloud Platform", "Windows Server"],
+    items: ["Azure", "Google Cloud Platform", "Windows SQL Server"],
   },
 ];
 
@@ -46,6 +46,7 @@ const certs: { label: string; href?: string }[] = [
     href: "https://coursera.org/share/de2b97b874c2b4ee8ab6aecdf4ba7db6",
   },
   { label: "HCMUS Data Analytics · 2023" },
+  { label: "GEM Institute · Data-Driven Decision Making Cert · 2026" },
 ];
 
 export default function Skills() {
