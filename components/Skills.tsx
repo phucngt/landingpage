@@ -37,6 +37,7 @@ const groups: Group[] = [
 ];
 
 const certs: { label: string; href?: string }[] = [
+  { label: "GEM Institute · Data-Driven Decision Making Cert · 2026" },
   {
     label: "Google BI Cert · 2024",
     href: "https://coursera.org/share/d9b7110342f1b24b3e91efba5661cd0c",
@@ -46,7 +47,6 @@ const certs: { label: string; href?: string }[] = [
     href: "https://coursera.org/share/de2b97b874c2b4ee8ab6aecdf4ba7db6",
   },
   { label: "HCMUS Data Analytics · 2023" },
-  { label: "GEM Institute · Data-Driven Decision Making Cert · 2026" },
 ];
 
 export default function Skills() {
