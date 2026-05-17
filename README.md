@@ -19,9 +19,11 @@ npm run dev
 1. Push this folder to a GitHub repo.
 2. Import the repo in [vercel.com/new](https://vercel.com/new).
 3. Framework preset: **Next.js** (auto-detected).
-4. Add env var `ANTHROPIC_API_KEY` = your Anthropic API key (used by the
-   in-page chatbot at `/api/chat`). Without it the chatbot falls back to a
-   "service unavailable" message but the rest of the site works fine.
+4. Add env var `OPENROUTER_API_KEY` = your OpenRouter API key (used by the
+   in-page chatbot at `/api/chat`). Get one at [openrouter.ai/keys](https://openrouter.ai/keys).
+   Without it the chatbot falls back to a "service unavailable" message but
+   the rest of the site works fine. Model is `anthropic/claude-haiku-4.5` —
+   change `MODEL` in `app/api/chat/route.ts` to swap.
 5. Deploy.
 
 Or via CLI:
